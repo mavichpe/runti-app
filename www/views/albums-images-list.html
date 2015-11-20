@@ -1,0 +1,30 @@
+<div id="images-list" >
+    <ion-content >
+        <div class="main-container custom-padding">
+            <div class="back-bt" onclick="app.goBack();">
+                <img src="img/back-bt.png" />
+            </div>
+            <div class="clearfix"/>
+            <div class="page-icon">
+                <img src="img/images/icon.png">
+            </div>
+        </div>
+
+        <div class ="white-box">
+            {{album.Album.title}}
+            <div class="white-circle">{{cantidadImages}}</div>
+        </div>
+        <br/>
+        <ul class="grid effect-2" id="grid">
+            <li ng-repeat="image in images" >
+                <a href="#/images-view/{{image.id}}">
+                    <img src="{{pathImg + image.url}}">
+                </a>
+            </li>
+        </ul>
+        <div id="loadMore" class="std-button action" style="clear: both; margin: 50px auto 100px;" ng-click="loadMore()">
+            Cargar mas
+        </div>
+    </ion-content>
+</div>
+

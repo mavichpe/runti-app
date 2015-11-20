@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "nexa";
+    font-weight: lighter;
+    src: url('../fonts/Nexa_Light.otf');
+}
+@font-face {
+    font-family: "nexa";
+    font-weight: normal;
+    src: url('../fonts/Nexa_Light.otf');
+}
+@font-face {
+    font-family: "nexa";
+    font-weight: bold;
+    src: url('../fonts/Nexa_Bold.otf');
+}
+
+$secundaryFont : walkway;
+@font-face {
+    font-family: $secundaryFont;
+    font-weight: 800;
+    src: url('../fonts/walkway/Walkway-SemiBold.ttf');
+}
+@font-face {
+    font-family: $secundaryFont;
+    font-weight: 900;
+    src: url('../fonts/walkway/Walkway-Black.ttf');
+}

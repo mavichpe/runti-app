@@ -1,0 +1,20 @@
+<div id="home" >
+    <ion-content>
+        <div class="main-container">
+            <h2> Calendario Anual</h2>
+            <div class="calendar-body">
+                <img class="body" src="img/calendar/caledar-body.png">
+                <div class="current-year">
+                    {{ano}}
+                </div>
+                <ul class="month-list">
+                    <li ng-repeat="index in []| range:13">
+                        <a class="theme{{template}}color  {{ mesactual == index ? 'current':''}}"href="#/calendar/{{index}}">
+                            {{meses[index]}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ion-content>
+</div>

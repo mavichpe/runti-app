@@ -1,0 +1,116 @@
+<div id="calendar-view" >
+    <ion-content>
+        <div class="main-container">
+            <!--            <div class="back-bt" onclick="app.goBack();">
+                            <img src="img/back-bt.png" />
+                        </div>-->
+            <h2> Eventos {{mes}}</h2>
+            <ul class="next-events" id="accordion" >
+                <li class="event-clickable" event-id="{{event.Event.id}}"  ng-init="isLastEvent = $last" ng-repeat="event in events">
+                    <div class="option-title">
+                        <div class="event-title" ng-click="showOptions($last)">
+                            <div class="title">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            {{event.Event.nombre}}
+                                        <td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="date">
+                                <div class="day">{{event.Event.dayNumber}}</div>
+                                <div class="dayName">{{dias[event.Event.dayName]}}</div>
+                            </div>
+                        </div>
+                        <div class="eventmonth">{{meses[event.Event.month]}}</div>
+                    </div>
+                    <div class="event-wrap">
+                        <div class="event-menu"   style="">
+                            <ul>
+                                <li class="{{menuItem.class}}" kind="{{menuItem.class}}" ng-click="showSubMenu('{{menuItem.class}}', {{event.Event.id}},isLastEvent)" ng-repeat="menuItem in eventMenuItem">
+                                    <i></i>
+                                    {{menuItem.title}} 
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="event-menu-content">
+                        <div class="hora">
+                            <div class="ruta" ng-repeat="ruta in event.Trip">
+                                <div class="info">
+                                    <div class="hora">
+                                        {{ruta.formatedTime}} 
+                                    </div>
+                                    <div class="lugar">
+                                        <b>Salida:</b> {{ruta.start}} <br/>
+                                        <b>Meta:</b> {{ruta.end}} 
+                                    </div>
+                                </div>
+                                <div class="distancia">
+                                    {{ruta.distance}}K
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mapa">
+                            <div class="mapa-index" total-trips="{{event.Trip.length}}">
+                                <div ng-class='{active:$first}' map-id ="{{ruta.distance}}" class="map-wrapper"ng-repeat="ruta in event.Trip">
+                                    <div class="title" ng-click="showMapa({{ruta.id}})">
+                                        {{ruta.distance}}K
+                                        <i></i>
+                                    </div>
+                                    <div class="map-content mapa-id-{{ruta.id}}">
+                                        <img ng-show="ruta.mapa != null && ruta.mapa.length != 0" src="{{pathImg + ruta.mapa}}">
+                                        <h3 ng-show="ruta.mapa == null || ruta.mapa.length == 0">No disponible</h3>
+                                        <h2>Mapa</h2>
+                                        <img ng-show="ruta.altimetria != null && ruta.altimetria.length != 0" src="{{pathImg + ruta.altimetria}}">
+                                        <h3 ng-show="ruta.altimetria == null || ruta.altimetria.length == 0">No disponible</h3>
+                                        <h2>Altimetria</h2>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inscripciones">
+                            <ul>
+                                <li ng-repeat="place in event.Place">
+                                    <div class="title"> {{place.title}} </div>
+                                    <a class="call-to"  href="tel:{{place.telefono}}" > 
+                                        <img src="img/phone-icon.png">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="costo">
+                            <div class="ruta" ng-repeat="ruta in event.Trip">
+                                <div class="valor">
+                                    {{ruta.costo}} 
+                                </div>
+                                <div class="distancia">
+                                    {{ruta.distance}}K
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kit">
+                            <ul>
+                                <li ng-repeat="element in event.Kitelement">
+                                    {{element.title}} 
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="social">
+                            <ul>
+                                <li ng-repeat="element in event.Social">
+                                    <a ng-click="openURL('{{element.value}}')" class="{{element.tipo}}">
+                                        <i class="current-theme" ></i>                                   
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</div>

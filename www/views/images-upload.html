@@ -1,0 +1,32 @@
+<div id="images-upload"  >
+    <ion-content>
+        <div class="main-container">
+            <div class="back-bt" onclick="app.goBack();">
+                <img src="img/back-bt.png" />
+            </div>
+            <div class="clearfix"/>
+            <div class="page-icon">
+                <img src="img/images/icon.png">
+            </div>
+            <div class="main-container">
+                <div class="photo-button">
+                    <div class="camara" ng-click="capturePhoto();">
+                        <img src="img/images/tomar-foto.png" />
+                    </div>
+                    <div class="library" ng-click="showGalery();">
+                        <img src="img/images/elejir-foto.png" />
+                    </div>
+                </div>
+                <div class="button button-warning upload" ng-click="uploadImage()">
+                    Subir Imagenes
+                </div>
+                <form id="images-to-upload" ng-submit="uploadImage()"  enctype="multipart/form-data">
+                    <input type="hidden" name="appKey" value="{{appKey}}">
+                    <input type="hidden" name="userId" value="{{userId}}">
+                    <div id="select-images" >
+                    </div>
+                </form>
+            </div>
+        </div>
+    </ion-content>
+</div>

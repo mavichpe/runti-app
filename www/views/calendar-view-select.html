@@ -1,0 +1,36 @@
+<div id="calendar-view-select" >
+    <ion-content>
+        <div class="main-container">
+            <div class="back-bt" onclick="app.goBack();">
+                <img src="img/back-bt.png" />
+            </div>
+            <div class="select-bt" ng-click="selectRace()">
+                <img src="img/ok-btn.png" />
+            </div>
+            <div class="clearfix"></div>
+            <h2> Eventos {{mes}}</h2>
+            <ul class="next-events" id="accordion" >
+                <li class="event-clickable" event-id="{{event.Event.id}}" ng-repeat="event in events">
+                    <div class="option-title">
+                        <div class="event-title">
+                            <div class="title">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            {{event.Event.nombre}}
+                                        <td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="date">
+                                <div class="day">{{event.Event.dayNumber}}</div>
+                                <div class="dayName">{{dias[event.Event.dayName]}}</div>
+                            </div>
+                        </div>
+                        <div class="eventmonth">{{meses[event.Event.month]}}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</div>

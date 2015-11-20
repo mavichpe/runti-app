@@ -1,0 +1,101 @@
+
+<div id="sticker" >
+    <!--<div class="send-sticker" onclick="StickerApp.showSticker();">-->
+    <ion-content>
+        <div class="main-container custom-padding select-sticker onSelect full-view">
+            <div class="back-bt" onclick="app.goBack();">
+                <img src="img/back-bt.png" />
+            </div>
+            <form id="stikerTosend">
+                <input type="hidden" id="sticker-class" name="data[Sticker][sticker]" value="{{sticker.id}}">
+                <input type="hidden"  name="data[appKey]" value="{{appKey}}">
+                <input type="hidden" name="data[Sticker][enviado]" value="{{userid}}">
+                <div id="accordion" class="full-view">
+                    <div>
+                        <div class="autoHeight">
+                            <ul class="list">
+                                <li class="fullwidth selected" stickerId ="{{sticker.id}}" onclick="StickerApp.selectSticker(this)">
+                                    <img src="img/stickers/{{sticker.img}}">
+                                    <div class="send-box show" style="display: block;">
+                                        <h2 class="heading" style="clear: both;"> 
+                                            <span class="down-arrow"></span>Seleccione los  <b>Amigos</b>
+                                        </h2>
+                                        <div class="search-form">
+                                            <input name="custom" class="friend-search" type="text" user-id="{{userid}}" placeholder="" style="width: 97%" />
+                                        </div>
+                                        <div class="buttons">
+                                            <div class="button button-cancel  button-small" onclick="app.goBack()"> Cancelar </div>
+                                            <div class="button button-success  button-small" ng-click="sendSticker()"> Enviar </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</div>
+<div id="mask" style="display: none !important;" >
+
+</div>
+<div class="input-holder">
+
+</div>
+
+<style type="text/css" media="all">
+    .autoHeight{
+        height: auto !important;
+        line-height: inherit !important;
+    }
+    #accordion {
+        padding-bottom:150px;
+        margin-top: 15px;
+        color: #000;
+        /*position:relative;*/
+    }
+    #accordion h2{
+        color: #000
+    }
+
+    #accordion > div {
+        width: 90%;
+        border-radius: 10px;
+        margin: 0 5%;
+        z-index: 1000;
+        /*position:absolute;*/
+        overflow:hidden;
+    }
+
+    #accordion > div > div:first-child {
+        width:100%; 
+        overflow:hidden;
+        white-space:no-wrap;
+        padding:0 10px 0 40px;
+        background:#E6EFF8;
+        text-shadow:0 1px 0 #fff;
+        font-weight:bold;
+        text-align: center;
+        /*position:relative;*/
+        z-index:11 !important;
+    }
+
+    #accordion > div.acOpen > div:first-child {
+        background-position:-1014px 50%;
+    }
+
+    #accordion > div > div:last-child {
+        width:100%;
+        padding: 0 10px 10px;
+        background:#E6EFF8;
+        font-style:italic;
+        /*position:absolute;*/
+        z-index:10;
+        overflow: hidden;
+    }
+
+    .user-search-result{
+        color: #000;
+    }
+</style>

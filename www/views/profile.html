@@ -1,0 +1,73 @@
+<div id="profile" >
+    <ion-content>
+        <div class="main-container">
+            <div class="main-title">
+                <label cla>Perfil de Usuario</label>
+                <div class="change-image">
+                    <img ng-show="userData.User.fcid != 0" src="https://graph.facebook.com/{{userData.User.fcid}}/picture?type=large" />
+                    <img ng-show="userData.User.fcid == 0"src="img/profile/change-image.png">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <form id="profile-form">
+                <input type="hidden" name="data[appKey]" value="{{appKey}}"/>
+                <input id="userId" type="hidden" name="data[User][id]" value="{{userData.User.id}}"/>
+                <div class="input-container">
+                    <label>Nombre</label>
+                    <input type="text" name="data[User][nombre]" value="{{userData.User.nombre}}"/>
+                </div>
+                <div class="input-container">
+                    <label>Apellidos</label>
+                    <input type="text" name="data[User][apellido]" value="{{userData.User.apellido}}" />
+                </div>
+                <div class="input-container">
+                    <label>Nombre Usuario</label>
+                    <input type="text" name="data[User][username]" value="{{userData.User.username}}"/>
+                </div>
+                <div class="input-container">
+                    <label>Email</label>
+                    <input type="email" name="data[User][email]" value="{{userData.User.email}}" />
+                </div>
+                <div class="input-container">
+                    <label>Ubicacion</label>
+                    <input type="text" name="data[User][ubicacion]" value="{{userData.User.ubicacion}}" />
+                </div>
+                <div class="input-container">
+                    <label>Fecha Nacimiento</label>
+                    <div class="date-fields">
+                        <input class="nacimiento" min=0 max=31 type="number" placeholder="dd" name="data[User][nacimiento][dia]" value="{{userData.User.nacimiento.dia}}" />
+                        <input class="nacimiento" min=0 max=12 type="number" placeholder="mm" name="data[User][nacimiento][mes]" value="{{userData.User.nacimiento.mes}}" />
+                        <input class="nacimiento" min=1950 max=2014 type="number" placeholder="yyyy" name="data[User][nacimiento][ano]" value="{{userData.User.nacimiento.ano}}" />
+                    </div>
+                </div>
+                <div class="submit">
+                    <div class="std-button" ng-click="submit()" >
+                        OK
+                    </div>
+                </div>
+            </form>
+
+            <hr/>
+
+            <a class="std-button green {{userData.Event.nombre != null ? 'selected': '';}}" href="javascript:void(0)" ng-click="selectRace()">
+                CUÁL VAS A CORRER? 
+            </a>
+
+            <div class="heading" ng-show="userData.Event.nombre != null">
+                {{userData.Event.nombre}}
+            </div>
+
+            <a class="std-button" href="javascript:void(0)" ng-click="compartir(userData.Event.id, userData.Event.nombre, 'Voy a correr la carrera ' + userData.Event.nombre + ' el proximo ' + userData.Event.fecha)">
+                <img src="img/images/compartir.png" style="position: absolute;left: 10%;top: 4px;"> Compartir 
+            </a>
+
+            <div class="heading">
+                <b>Selecciona</b> una carrera que vas a realizar proximamente. Y dale <b>compartir</b> para que  tus amigos te envien mensajes de apoyo. 
+            </div>
+
+
+        </div>
+    </ion-content>
+
+
+</div>

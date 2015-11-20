@@ -1,0 +1,46 @@
+<div id="friends" >
+    <ion-content overflowScroll = "true" padding="true">    
+        <div class="main-container">
+            <div class="back-bt" onclick="app.goBack();">
+                <img src="img/back-bt.png" />
+            </div>
+            <div class="clearfix"/>
+            <div class="page-icon">
+                <img src="img/friends/icon.png">
+            </div>
+            <a href="{{pedingRequests.length > 0 ? '#/friends-request':'javascript:void(0)'}}" >
+                <div class="std-button big blue" style="overflow: visible;">
+                    Amigos
+                    <div class="request-bubble" ng-show="pedingRequests.length > 0">Solicitudes</div>
+                    <div class="notificacion-amount" ng-show="{{pedingRequests.length > 0}}">{{pedingRequests.length}}</div>
+                </div>
+            </a>
+            <ul class="friends {{friends.length ? 'border-last' : ''}}"  >
+                <li class="friend" ng-show="!friends.length">
+                    <div class="">
+                        <div class="title">
+                            Ustes no tiene amigos actualmente
+                        </div>
+                    </div>
+                </li>
+                <li class="friend" ng-repeat="friend in friends">
+                    <div class="friend-list" >
+                        <a href="#/profile/{{friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.id : friend.Friend.friend.User.id}}">
+                            <img width="80" height="80" ng-show="friend.Friend.friend.User.fcid != 0" src="https://graph.facebook.com/{{friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.fcid:friend.Friend.friend.User.fcid}}/picture?type=large" />
+                            <img width="80" height="80" ng-show="friend.Friend.friend.User.fcid == 0" src="img/profile/change-image.png" />
+                            <span class="name">
+                                {{friend.Friend.friend.User.id == currentUser ? friend.Friend.user.User.nombre + " " + friend.Friend.user.User.apellido : friend.Friend.friend.User.nombre + " " + friend.Friend.friend.User.apellido}}
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="friend" ng-show="friends % 2 != 0">
+                    <div class="friend-list">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </ion-content>
+</div>
+

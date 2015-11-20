@@ -1,0 +1,30 @@
+<div id="spotify" >
+    <ion-content>
+        <h2 class="heading"> 
+            <span class="down-arrow"></span><b>Spotify </b> playlists
+        </h2> 
+        <div class="main-container">
+            <ul class="next-events">
+                <li class="event-clickable ng-scope" ng-repeat="playlist in playlists">
+                    <a href="#/spotify/{{playlist.Playlist.id}}">
+                        <div class="event-title">
+                            <div class="title">
+                                <table>
+                                    <tbody><tr>
+                                            <td class="ng-binding">
+                                                {{playlist.Playlist.title}}
+                                            </td><td>
+                                            </td></tr>
+                                    </tbody></table>
+                            </div>
+                            <div class="date">
+                                <div class="dayName ng-binding">Reproducir</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</div>
+

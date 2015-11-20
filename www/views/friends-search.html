@@ -1,0 +1,41 @@
+<div id="search-friends"  >
+    <ion-content>
+        <div class="main-container">
+            <!--            <div class="back-bt" onclick="app.goBack();">
+                            <img src="img/back-bt.png" />
+                        </div>-->
+            <div class="back-bt" onclick="app.goBack();">
+                <img src="img/back-bt.png" />
+            </div>
+            <div class="clearfix"/>
+            <div class="page-icon">
+                <img src="img/friends/icon.png">
+            </div>
+            <div class="std-button big ligth-grey" >
+                Buscar Amigos
+            </div>
+            <br/>
+            <div class="search-wrapper">
+                <div class="std-button orange" ng-click="showSearchForm()">
+                    <div class="icon">
+                        <img class="lupa" src="img/invite/lupa.png">
+                    </div>
+                    <div class="title">Buscar en Runti</div>
+                </div>
+                <div class="search-form">
+                    <input name="data[User][filter]" id="search-input" type="text" placeholder="Nombre Amigo ..." style="width: 97%" />
+                    <div class="delete-icon" ng-click="hideAddFriend()">x</div>
+
+                </div>
+            </div>
+            <div class="std-button blue" ng-click="requestFBFriends()">
+                <div class="icon">
+                    <img class="facebook" src="img/invite/facebook.png">
+                </div>
+                <div class="title">Invitar de Facebook</div>
+            </div>
+        </div>
+    </ion-content>
+</div>
+
+

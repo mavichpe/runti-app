@@ -1,0 +1,47 @@
+<div id="friends-request" >
+    <ion-content>
+        <div class="main-container request">
+            <div class="back-bt" onclick="app.goBack();">
+                <img src="img/back-bt-black.png" />
+            </div>
+            <div class="clearfix"/>
+            <div class="page-icon">
+                <img src="img/friends/icon.png">
+            </div>
+            <a href="{{pedingRequests.length > 0 ? '#/friends-request':'javascript:void(0)'}}" >
+                <div class="std-button big blue" style="overflow: visible;">
+                    Amigos
+                    <div class="notificacion-amount" ng-show="{{pedingRequests.length > 0}}">{{pedingRequests.length}}</div>
+                </div>
+            </a>
+            <div ng-show="pedingRequests.length > 0" >
+                <ul class="friends" >
+                    <li class="friend-list request-{{pedingRequest.Friend.id}}" ng-repeat="pedingRequest in pedingRequests">
+                        <div >
+                            <a href="#/profile/{{pedingRequest.Friend.friend.User.id}}" class="request-name">
+                                <div >
+                                    <img width="80" height="80" ng-show="pedingRequest.Friend.friend.User.fcid != 0" src="https://graph.facebook.com/{{pedingRequest.Friend.friend.User.id == currentUser ? pedingRequest.Friend.friend.User.fcid:pedingRequest.Friend.friend.User.fcid}}/picture?type=large" />
+                                    <img width="80" height="80" ng-show="pedingRequest.Friend.friend.User.fcid == 0" src="img/profile/change-image.png" />
+                                    <div class="name">
+                                        <b>{{pedingRequest.Friend.friend.User.id == currentUser ? pedingRequest.Friend.friend.User.nombre + " " + pedingRequest.Friend.friend.User.apellido : pedingRequest.Friend.friend.User.nombre + " " + pedingRequest.Friend.friend.User.apellido}}</b>
+                                        <br/> Te ha enviado una solicitud.
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="response-box">
+                                <div class="std-button aprobar" ng-click="acceptRequest({{pedingRequest.Friend.id}})">
+                                </div>
+                                <div class="std-button denegar" ng-click="denegarRequest({{pedingRequest.Friend.id}})">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ion-content>
+</div>
+<div class="input-holder">
+
+</div>
+

@@ -1,0 +1,54 @@
+<div id="image-view" >
+    <ion-content>
+        <div class="main-container">
+            <div class="back-bt" onclick="app.goBack();">
+                <img src="img/back-bt.png" />
+            </div>
+            <div class="page-icon">
+                <img src="img/images/icon.png">
+            </div>
+            <div style="width: 96%; margin:10px auto;">
+                <img class="main-image" src="{{pathImg + imagen.Image.url}}">
+                <div class="transparent-box">
+                    <div class="social-buttons-actions photo">
+                        <div class="like {{likestatus == 1 ? 'liked':''}}" ng-click="sendLike()">Me Gusta</div>
+                        <div class="comment " ng-click="showCommentBox({{imagen.Image.id}})"> Comentar</div>
+                        <div class="save" ng-click="guardarImagen({{imagen.Image.id}},{{currentUser}})">Guardar</div>
+                        <div class="share" ng-click="compartir({{imagen.Image.id}})">Compartir</div>
+                    </div>
+                    <div class="share-info" >
+                        <span ng-click="sendLike()">  <span id="like-number">{{imagen.ImagesLinks.length}}</span> me gusta</span><br/>
+                        <span ng-click="showCommentBox({{imagen.Image.id}})">{{imagen.Imagescomment.length}} cometarios</span>
+                    </div>
+                </div>
+                <div class="main-container whitebox">
+                    <form id="like-form">
+                        <input type="hidden" name="data[Imageslike][user_id]" value="2"  />
+                        <input type="hidden" name="data[appKey]" value="{{appKey}}"/>
+                        <input type="hidden" name="data[Imageslike][image_id]" value="{{imagen.Image.id}}"   />
+                        <input type="hidden" name="data[Imageslike][like]" id="likestatus" value="{{likestatus}}"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="mask" ng-click="closePopup()">
+
+        </div>
+        <div class="app-popup share-popup">
+            <div class="app-popup-box ">
+                <div class="close-bt"></div>
+                <ul>
+                    <li class="facebook" ng-click="shareFBPost('{{shareUrl}}')">
+                        <img src="img/share/facebook.png"/>
+                    </li>
+                    <!--<li class="twitter">
+                        <a class="twitter-share-button"
+                           href="https://twitter.com/share" >                
+                            <img src="img/share/twitter.png?url=http://collaboration.wamdigital.com/runti/&text=He leido un articulo en Runti"/>
+                        </a>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+    </ion-content>
+</div>

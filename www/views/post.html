@@ -1,0 +1,75 @@
+<div id="posts" class=" single {{postType}}" >
+    <ion-content>
+        <div class="title">
+            <div class="main-container custom-padding">
+                <div class="back-bt" onclick="app.goBack();">
+                    <img src="img/back-bt.png" />
+                </div>
+                <h3>{{postType}}</h3>
+                <div class="social-buttons-actions white">
+                    <div class="like {{likestatus == 1 ? 'liked':''}}" ng-click="sendLike()">Me Gusta</div>
+                    <div class="share" ng-click="compartir({{post.Post.id}},'{{post.Post.title}}')">Compartir</div>
+                </div>
+            </div>
+        </div>
+        <div class="main-container nopadding">
+            <div class="post-text">
+                <h2>{{post.Post.title}}</h2>
+                <img class="post-img" src="{{pathImg + post.Post.img}}">
+                <div bind-compiled-html="post.Post.text" ></div>
+            </div>
+            <div ng-show="{{post.Sponsor.id}}" class="sponsor-info">
+                <img class="sponsor-img" src="{{pathImg + post.Sponsor.logo}}">
+                <div class="info">
+                    <h3>
+                        {{post.Sponsor.title}}
+                    </h3>
+                    <h4>
+                        {{post.Sponsor.url}} 
+                    </h4>
+                    <div class="facebook">
+                        <a href="{{post.Sponsor.facebook}} ">
+                            <img src="img/facebook-icon.png">
+                            nutricion
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--<div ng-show="{{post.Sponsor.id}}"> -->
+    </ion-content>
+
+</div>
+<div id="mask" ng-click="closePopup()">
+
+</div>
+<div class="app-popup share-popup">
+    <div class="app-popup-box ">
+        <div class="close-bt"></div>
+        <ul>
+            <li class="facebook" ng-click="shareFBPost('{{post.Sponsor.title}}')">
+                <img src="img/share/facebook.png"/>
+
+            </li>
+            <!--<li class="twitter">
+                <a class="twitter-share-button"
+                   href="https://twitter.com/share" >                
+                    <img src="img/share/twitter.png?url=http://collaboration.wamdigital.com/runti/&text=He leido un articulo en Runti"/>
+                </a>
+            </li>-->
+        </ul>
+    </div>
+</div>
+
+<div class="input-holder">
+
+</div>
+<form id="like-form">
+    <input type="hidden" name="data[Postslike][user_id]" value="2"  />
+    <input type="hidden" name="data[appKey]" value="{{appKey}}"/>
+    <input type="hidden" name="data[Postslike][post_id]" value="{{post.Post.id}}"   />
+    <input type="hidden" name="data[Postslike][like]" id="likestatus" value="{{likestatus}}"/>
+</form>
+

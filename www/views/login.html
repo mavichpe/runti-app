@@ -1,0 +1,38 @@
+<div id="login" class="stage">
+    <ion-content >
+        <div class="builds-content">
+            <img class="builds" src="img/login-method/builds.png">
+        </div>
+        <div class="login-content">
+            <img class="runti-men" src="img/login-method/runti-men.png">
+            <img class="logo" src="img/logo.png" />
+            <div class="select-login-method">
+                <div class="invitado" ng-click="asInvite()">Como Invitado</div>
+                <!--<div class="email"> Email </div>-->
+                <div class="facebook" ng-click="fblogin()" > Facebook </div>
+            </div>
+            <div class ="login-method" >
+                <div class="email">
+                    <form id="emailLogin">
+                        <ul>
+                            <li>
+                                <label>Correo</label>
+                                <input type="text" name="mail" ng-model="mail"/>
+                            </li>
+                            <li>
+                                <label>Contraseña</label>
+                                <input type="password" name="password" ng-model="password"/>
+                            </li>
+                            <li>
+                                <button type="submit" ng-click="cancel()" value="enviar">Cancelar</button>
+                                <button type="submit" ng-click="submit()" value="enviar">Enviar</button>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</div>
+
+

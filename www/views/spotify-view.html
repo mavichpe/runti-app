@@ -1,0 +1,17 @@
+<div id="spotify"  >
+    <ion-content>
+        <h2 class="heading"> 
+            <span class="down-arrow"></span>{{playlist.Playlist.title}}
+        </h2> 
+        <div class="main-container">
+            <iframe src="https://embed.spotify.com/?uri={{playlist.Playlist.iframe}}" width="400" height="480" frameborder="0" allowtransparency="true"></iframe>
+        </div>
+        <iframe scrolling="no" frameborder="0" allowTransparency="true" src="http://www.deezer.com/plugins/player?autoplay=true&playlist=true&width=320&height=600&cover=true&type=playlist&id=995326767&title=&format=vertical&app_id=undefined" width="320" height="600"></iframe>    <style>
+            iframe{
+                margin: 0 auto;
+                display: block;
+            }
+        </style>
+    </ion-content>
+</div>
+

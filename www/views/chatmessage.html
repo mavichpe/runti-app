@@ -1,0 +1,65 @@
+<div id="chatmessage" >
+    <h2 class="heading"> 
+        <div class="back-bt" >
+            <a href="#/chat">
+                <img src="img/chat/back.png" />
+            </a>
+        </div>
+        {{friendData.User.nombre + ' ' + friendData.User.apellido}}
+    </h2>
+    <ion-content>    
+        <input type="hidden" id="friend-id" value="{{friendData.User.id}}">
+        <div class="main-container stage">
+            <div style="display: none" class="friend-response-box">
+                <li class="friend">
+                    <div class="left">
+                        <div class="avatar">
+                            <img ng-show="friendData.User.fcid != 0" src="https://graph.facebook.com/{{friendData.User.fcid}}/picture?type=large" />
+                            <img ng-show="friendData.User.fcid == 0"src="img/profile/change-image.png">
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="text"></div>
+                        <div class="box-footer">
+                            <img  class="image" src="img/chat/box-footer.png"/>
+                            <div class="line" />
+                        </div>
+                    </div>
+                </li>
+            </div>
+            <ul class="messages">
+
+                <li class="{{message.Message.user_id == currentUser ? 'user' : 'friend' }}" ng-repeat="message in messages">
+                    <div ng-if="message.Message.user_id != currentUser"  class="left">
+                        <div class="avatar">
+                            <img ng-show="friendData.User.fcid != 0" src="https://graph.facebook.com/{{friendData.User.fcid}}/picture?type=large" />
+                            <img ng-show="friendData.User.fcid == 0"src="img/profile/change-image.png">
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="text">{{message.Message.message}}</div>
+                        <div class="box-footer">
+                            <img  class="image" src="{{message.Message.user_id != currentUser ? 'img/chat/box-footer.png':'img/chat/box-footer-green.png'}}"/>
+                            <div class="line" />
+                        </div>
+                    </div>         
+                </li>
+            </ul>
+        </div>
+    </ion-content>    
+    <div class="writeBox">
+        <div class="container">
+            <form id="comment-form">
+                <input type="hidden" name="data[Message][user_id]" value="{{currentUser}}"  />
+                <input type="hidden" name="data[appKey]" value="{{appKey}}"/>
+                <input type="hidden" name="data[Message][friend_id]" value="{{friendData.User.id}}"   />
+                <textarea name="data[Message][message]" id="message-content" style="float: left;"></textarea>
+                <!--<div class="button button-cancel" onclick="StickerApp.closeStickerSelection(this)"> Cancelar </div>-->
+                <div ng-click="sendMessage()" class="send-message"> Enviar </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+

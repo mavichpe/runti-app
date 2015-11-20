@@ -1,0 +1,39 @@
+<div id="image-view" >
+    <ion-content>
+        <div class="main-container">
+            <div class="back-bt" onclick="app.goBack();">
+                <img src="img/back-bt.png" />
+            </div>
+            <div class="main-title" style="width: 240px;">
+                <img src="img/images/icon.png">
+                <label>Comentarios</label>
+            </div>
+            <div style="width: 96%; margin:10px auto;">
+                <div class="main-container whitebox">
+                    <h4>Comentarios</h4>
+                    <ul class="comments" >
+                        <li ng-repeat="comment in comments">
+                            <!-- <img class="perfil" src="images/perfil/user1.jpg" />-->
+                            <img class="user-photo" ng-show="comment.User.fcid != 0" src="https://graph.facebook.com/{{comment.User.fcid}}/picture?type=large" />
+                            <img class="user-photo" ng-show="comment.User.fcid == 0"src="img/profile/change-image.png">
+                            <p class="text">
+                                <a class="username">{{comment.User.nombre}} {{comment.User.apellido}}:</a>
+                                {{comment.Imagescomment.comment}}
+                            </p>
+                        </li>
+                    </ul>
+                    <div class="comment-box">
+                        <form id="comment-form">
+                            <input type="hidden" name="data[Imagescomment][user_id]" value="{{currentUser}}"  />
+                            <input type="hidden" name="data[appKey]" value="{{appKey}}"/>
+                            <input type="hidden" name="data[Imagescomment][image_id]" value="{{imagen.Image.id}}"   />
+                            <textarea name="data[Imagescomment][comment]" style="float: left;"></textarea>
+                            <!--<div class="button button-cancel" onclick="StickerApp.closeStickerSelection(this)"> Cancelar </div>-->
+                            <div ng-click="sendComment()" class="button button-success button-small right"> Enviar </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</div>

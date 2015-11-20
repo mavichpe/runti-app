@@ -1,0 +1,37 @@
+@mixin set-transition($senten){
+    transition: $senten;
+    -webkit-transition: $senten;
+    -moz-transition: $senten;
+}
+
+@mixin set-opacity($opacity){
+    $porcent : opacity-to-percent($opacity);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity="+$porcent+")";
+    filter: alpha(opacity=$porcent);
+    -moz-opacity: $opacity;
+    -khtml-opacity: $opacity;
+    opacity: $opacity;
+}
+@mixin addMenuItem($senten){
+    background: url("../img/menu/"+$senten+ ".png") no-repeat 15px center;
+    padding-left: 60px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-size: 46px;
+    text-align: left;
+}
+
+@mixin set-translate($x,$y,$z){
+    transform: translate3d($x,$y,$z);
+    -webkit-transform: translate3d($x,$y,$z);
+    -moz-transform: translate3d($x,$y,$z);
+    -ms-transform: translate ($x,$y,$z);
+    -o-transform: translate($x,$y,$z);
+}
+@mixin set-important-translate($x,$y,$z){
+    transform: translate3d($x,$y,$z) !important;
+    -webkit-transform: translate3d($x,$y,$z) !important;
+    -moz-transform: translate3d($x,$y,$z) !important;
+    -ms-transform: translate ($x,$y,$z) !important;
+    -o-transform: translate($x,$y,$z) !important;
+}

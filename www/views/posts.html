@@ -1,0 +1,77 @@
+<div id="posts" class=" {{postType}}" >
+    <!--    <div class="loading {{postType}} show">
+                    <img class="sponsor-img nutricional" src="http://collaboration.wamdigital.com/runti/admin/img/sponsor/1/sponsor1.png">
+                    <img class="sponsor-img training" src="http://collaboration.wamdigital.com/runti/admin/img/sponsor/2/sponsor2.png ">
+            <div class="post-logo">
+                <img src="img/post-logo.png">
+            </div>
+        </div>-->
+    <ion-content>
+        <div class="title">
+            <div class="main-container custom-padding" >
+                <div class="back-bt" onclick="app.goBack();">
+                    <img src="img/back-bt.png" />
+                </div>
+                <h3>{{postType}}</h3>
+            </div>
+        </div>
+        <div class="text main-container nopadding">
+            <ul class="list">
+                <li ng-repeat="post in posts">
+                    <a href="#/viewpost/{{post.Post.id}}">
+                        <img class="post-img" src="{{pathImg + post.Post.img}}">
+                        {{post.Post.title}}
+                    </a>
+                    <div class="excerpt" ng-bind-html="getExcerpt(post.Post.text)"></div>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+    <ion-footer-bar align-title="left" class="">
+        <div ng-show="{{postType != 'news'}}" class="{{postType}} sponsor-info">
+            <div class="main-container nopadding">
+                <img src="img/post-logo.png" style="max-height: 40px;margin: 0 auto;display: block;">
+                <!--<img class="sponsor-img nutricional" src="http://collaboration.wamdigital.com/runti/admin/img/sponsor/1/sponsor1.png">-->
+                <!--<img class="sponsor-img training" src="http://collaboration.wamdigital.com/runti/admin/img/sponsor/2/sponsor2.png ">-->
+                <div class="info nutricional">
+                    <h3 class="ng-binding">
+                        Complejo Deportivo 
+                    </h3>
+                    <h4 class="ng-binding">
+                        http://google.com 
+                    </h4>
+                    <div class="telefono clearfix">
+                        2203-4570 
+                    </div>
+                    <div class="facebook">
+                        <a href="http://facebook.com">
+                            <img src="img/facebook-icon-white.png">
+                            Furati
+                        </a>
+                    </div>
+                </div>
+                <div class="info training">
+                    <h3 class="ng-binding">
+                        Clinica Nutricion
+                    </h3>
+                    <h4 class="ng-binding">
+                        http://google.com 
+                    </h4>
+                    <div class="telefono clearfix">
+                        2222 3333
+                    </div>
+                    <div class="facebook">
+                        <a href="http://facebook.com">
+                            <img src="img/facebook-icon-white.png">
+                            nutricion
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-footer-bar>
+</div>
+<div class="input-holder">
+
+</div>
+

@@ -1,0 +1,38 @@
+<div id="images-list" >
+    <ion-content>
+        <div class="main-container custom-padding">
+            <div class="back-bt" onclick="app.goBack();">
+                <img src="img/back-bt.png" />
+            </div>
+            <div class="page-icon">
+                <img src="img/images/icon.png">
+            </div>
+            <div style="margin: 15px auto 0px;
+                 overflow: hidden;
+                 clear: both;">
+                <br/>
+                <ul class="options" ng-show="!hideUpload">
+                    <li class="std-button ligth-blue"  ng-click="goToUpload()">
+                        Subir fotos
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <img id="image" src="" style="display:none;width:100%;">
+        <ul>
+            <li class="event-clickable" ng-show="!images.length">
+                <div class="event-title ">
+                    <div class="button button-secondary no-image-title">
+                        No has subido imagenes
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <ul class="grid effect-2" id="grid">
+            <li ng-repeat="image in images" class="shown" repeat-complete="createMosaic()">
+                <a href="#/images-view/{{image.Image.id}}"><img src="{{pathImg + image.Image.url}}"></a>
+            </li>
+        </ul>
+    </ion-content>
+</div>
+

@@ -1,0 +1,115 @@
+
+<div id="sticker" >
+    <!--<div class="send-sticker" onclick="StickerApp.showSticker();">-->
+    <ion-content>
+        <div class="main-container custom-padding select-sticker ">
+            <div class="back-bt" onclick="app.goBack();">
+                <img src="img/back-bt.png" />
+            </div>
+            <div class="send-sticker">
+                <img src="img/stickers/icon.png">
+                <label>Sticker</label>
+            </div>
+
+            <form id="stikerTosend">
+                <input type="hidden" id="sticker-class" name="data[Sticker][sticker]" value="">
+                <input type="hidden" id="sticker-class" name="data[appKey]" value="{{appKey}}">
+                <input type="hidden" id="sticker-class" name="data[Sticker][enviado]" value="{{userid}}">
+                <div id="accordion">
+                    <div>
+                        <div>Sin Animar</div>
+                        <div>
+                            <ul class="list">
+                                <li class="{{sticker.type}}" ng-click="selectSticker(sticker.id)" ng-repeat="sticker in stickersImage">
+                                    <img src="img/stickers/{{sticker.img}}">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; display: none;">
+                        <div>Animadas</div>
+                        <div>
+                            <ul class="list">
+                                <li class="{{sticker.type}}" stickerId ="{{sticker.id}}" onclick="StickerApp.selectSticker(this)" ng-repeat="sticker in stickersAnimated">
+                                    <img src="img/stickers/{{sticker.img}}">
+                                    <div class="send-box">
+                                        <h2 class="heading" style="clear: both;"> 
+                                            <span class="down-arrow"></span>Seleccione los  <b>Amigos</b>
+                                        </h2>
+                                        <div class="search-form">
+                                            <input name="custom" class="friend-search" type="text" user-id="{{userid}}" placeholder="" style="width: 97%" />
+                                        </div>
+                                        <div class="buttons">
+                                            <div class="button button-cancel" onclick="StickerApp.closeStickerSelection(this)"> Cancelar </div>
+                                            <div class="button button-success" ng-click="sendSticker()"> Enviar </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</div>
+<div id="mask" style="display: none !important;" >
+
+</div>
+<div class="input-holder">
+
+</div>
+
+<style type="text/css" media="all">
+    #accordion {
+        padding-bottom:150px;
+        margin-top: 15px;
+        color: #000;
+        /*position:relative;*/
+    }
+    #accordion h2{
+        color: #000
+    }
+
+    #accordion > div {
+        width: 90%;
+        border-radius: 10px;
+        margin: 0 5%;
+        z-index: 1000;
+        /*position:absolute;*/
+        overflow:hidden;
+    }
+
+    #accordion > div > div:first-child {
+        width:100%; 
+        height:40px;
+        line-height:40px;
+        overflow:hidden;
+        white-space:no-wrap;
+        padding:0 10px 0 40px;
+        background:#E6EFF8;
+        text-shadow:0 1px 0 #fff;
+        font-weight:bold;
+        text-align: center;
+        /*position:relative;*/
+        z-index:11 !important;
+    }
+
+    #accordion > div.acOpen > div:first-child {
+        background-position:-1014px 50%;
+    }
+
+    #accordion > div > div:last-child {
+        width:100%;
+        padding: 0 10px 10px;
+        background:#E6EFF8;
+        font-style:italic;
+        /*position:absolute;*/
+        z-index:10;
+        overflow: hidden;
+    }
+
+    .user-search-result{
+        color: #000;
+    }
+</style>

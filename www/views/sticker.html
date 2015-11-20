@@ -1,0 +1,60 @@
+<div id="sticker" >
+    <!--<div class="send-sticker" onclick="StickerApp.showSticker();">-->
+    <ion-content>
+        <div class="main-container custom-padding select-sticker ">
+            <div class="send-sticker">
+                <img src="img/stickers/icon.png">
+                <label>Sticker</label>
+            </div>
+
+            <ul class="options">
+                <li ng-click="goToSendSticker()">
+                    Enviar Stiker
+                </li>
+            </ul>
+
+            <h2 class="heading" style="clear: both;"> 
+                Recibidos
+                <div class="notificacion-amount" ng-show="{{unViewSticker.length > 0}}">{{unViewSticker.length}}</div>
+            </h2> 
+            <div class="main-container nopadding">
+                <ul class="recibe-sticker" >
+                    <li id="recibe-sticker-{{sticker.Sticker.id}}" class="sticker" ng-repeat="sticker in unViewSticker" ng-click="verSticker({{sticker.Sticker.sticker}},{{sticker.Sticker.id}})">
+                        <div class="icon">
+                            <img class="read" ng-show="{{sticker.Sticker.estado != 0}}" src="img/stickers/recibe-icon-read.png" />
+                            <img class="un-read" ng-show="{{sticker.Sticker.estado == 0}}" src="img/stickers/recibe-icon-unread.png" />
+                        </div>
+                        <div class="title">
+                            {{sticker.User.nombre + " " + sticker.User.apellido}}
+                        </div>
+                    </li>
+                    <li id="recibe-sticker-{{sticker.Sticker.id}}" class="sticker" ng-repeat="sticker in recibedStickers" ng-click="verSticker({{sticker.Sticker.sticker}},{{sticker.Sticker.id}})">
+                        <div class="icon">
+                            <img class="read" ng-show="{{sticker.Sticker.estado != 0}}" src="img/stickers/recibe-icon-read.png" />
+                            <img class="un-read" ng-show="{{sticker.Sticker.estado == 0}}" src="img/stickers/recibe-icon-unread.png" />
+                        </div>
+                        <div class="title">
+                            {{sticker.User.nombre + " " + sticker.User.apellido}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="app-popup view-sticker">
+                <div class="select-sticker app-popup-box main-container">
+                    <div class="close-bt" onclick="StickerApp.closeSticker(this);"></div>
+                    <h2 class="heading"> 
+                        <span class="down-arrow"></span><b>Sticker</b> Recibido
+                    </h2> 
+                    <img id="sticker-sended">
+                </div>
+
+            </div>
+        </div>
+    </ion-content>
+</div>
+<div id="mask" style="display: none !important;" >
+
+</div>
+<div class="input-holder">
+
+</div>

@@ -1,0 +1,11 @@
+@function calcPercent($target, $context){
+    @return ($target/$context) * 100%;
+}
+
+@function calcEm($target, $context){
+    @return ($target/$context) * 1em;
+}
+
+@function opacity-to-percent($opacity){
+    @return $opacity * 100;
+}

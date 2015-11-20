@@ -1,0 +1,116 @@
+<div id="notification" >
+    <ion-content>
+        <div class="main-container">
+            <!--            <div class="back-bt" onclick="app.goBack();">
+                            <img src="img/back-bt.png" />
+                        </div>-->
+            <div class="page-icon">
+                <img src="img/notifications/icon.png">
+            </div>
+            <div class="clearfix"></div>
+            <div class="text-box">
+                Haz una lista de carrera o carreras 
+                que deseas correr y Runti te enviará
+                una notificación
+            </div>
+            <br/>
+
+            <ul class="options" style="padding: 0">
+                <li class="red" ng-click="selectRace()">
+                    <b> Escoger Carrera</b>
+                </li>
+            </ul>
+
+
+            <div class="selectedRaceBox" ng-if="selectedEvent != null">
+                <div class="heading">
+                    Carrera Seleccionada
+                </div>
+                <ul class="options selectedRace" event-month="{{selectedEvent.Event.month}}" event-name="{{selectedEvent.Event.nombre}}" event-date="{{selectedEvent.Event.fecha}}">
+                    <li >
+                        <b>{{selectedEvent.Event.nombre}} </b>
+                    </li>
+                    <li class="setDate">
+                        <label>Fecha</label>
+                        <select id="dia">
+                            <option ng-repeat="dia in []| range:32" value="{{dia}}">
+                                {{dia}}
+                            </option>
+                        </select>
+                        <select id="mes">
+                            <option ng-repeat="mes in meses" value="{{mes.id}}">
+                                {{mes.label}}
+                            </option>
+                        </select>
+                        <select id="ano">
+                            <option ng-repeat="ano in anos" value="{{ano}}">
+                                {{ano}}
+                            </option>
+                        </select>
+                    </li>
+                    <li class="setDate">
+                        <label>hora</label>
+                        <select id="hora">
+                            <option ng-repeat="hora in []| range:13" value="{{hora}}">
+                                {{hora}}
+                            </option>
+                        </select>
+                        <select id="minuto">
+                            <option value="0">
+                                0
+                            </option>
+                            <option ng-repeat="minuto in []| range:60" value="{{minuto}}">
+                                {{minuto}}
+                            </option>
+                        </select>
+                        <select id="ampm">
+                            <option value="am">
+                                AM
+                            </option>
+                            <option selected value="pm">
+                                PM
+                            </option>
+                        </select>
+                    </li>
+                    <li class="delete" ng-click="deselectRace()">
+                        Deseleccionar
+                    </li>
+                    <li class="green" ng-click="setNotification()">
+                        Guardar
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+            <hr />
+            <br/>
+            <br/>
+
+            <div class="text-box center ">
+                <b>Lista de Notificaciones</b>
+            </div>
+
+            <div class='notificaciones'>
+                <div class="heading white" id='alert-{{alert.Alert.id}}' ng-repeat="alert in alerts">
+                    <div class="delete" ng-click="cancelarAlerta(alert.Alert.id)">x</div>
+
+                    <div class="title">
+                        <b>  {{alert.Alert.title}}</b>
+                    </div>     
+                    <div ng-bind-html="formatDate(alert.Alert.date)"></div>
+                </div>
+                <div class="heading white" id='alert' >
+                    <div class="delete" ng-click="cancelarAlerta(alert.Alert.id)">x</div>
+
+                    <div class="title">
+                        <b> sdsdsdsd</b>
+                    </div>     
+                    <div >sdsdsd</div>
+                </div>
+            </div>
+
+
+        </div>
+    </ion-content>
+</div>
+
+

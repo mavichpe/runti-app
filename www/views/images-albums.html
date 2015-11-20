@@ -1,0 +1,26 @@
+<div id="images-album" >
+    <ion-content>
+        <div class="main-container custom-padding">
+            <div class="back-bt" onclick="app.goBack();">
+                <img src="img/back-bt.png" />
+            </div>
+            <div class="clearfix"/>
+            <div class="page-icon">
+                <img src="img/images/icon.png">
+            </div>
+        </div>
+        <ul class="options">
+            <li class="std-button ligth-blue" >
+                Fotos Runti
+            </li>
+        </ul>
+        <ul class="album-list">
+            <li ng-repeat="album in albums">
+                <a class ="white-box {{ album.Userpenden.id == null ? 'pendend':''}}" href="#/images-view-album/{{album.Album.id}}">
+                    {{album.Album.title}}
+                </a>
+            </li>
+        </ul>
+    </ion-content>
+</div>
+
